@@ -10,6 +10,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { GoleanComponent } from './shop/golean/golean.component';
+import { ProductDetailComponent } from './shop/product-detail/product-detail.component';
+import { IntroItemDetailComponent } from './shop/intro-item-detail/intro-item-detail.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
     EmployeeComponent,
     HeaderComponent,
     FooterComponent,
-    AddEmployeeComponent
+    AddEmployeeComponent,
+    GoleanComponent,
+    ProductDetailComponent,
+    IntroItemDetailComponent
   ],
   imports: [
     BrowserModule,
