@@ -4,7 +4,7 @@ import { HttpClientService, Employee } from '../service/http-client.service';
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
-  styleUrls: ['./employee.component.css']
+  styleUrls: ['./employee.component.scss']
 })
 export class EmployeeComponent implements OnInit {
 
@@ -20,12 +20,14 @@ export class EmployeeComponent implements OnInit {
     );
   }
 
+  /*
   deleteEmployee(employee: Employee): void {
     this.httpClientService.deleteEmployee(employee)
       .subscribe( data => {
         this.employees = this.employees.filter(u => u !== employee);
       })
   };
+  */
 
  
 }
