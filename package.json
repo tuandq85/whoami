@@ -25,6 +25,7 @@
     "bootstrap": "^4.3.1",
     "form-data": "^2.5.0",
     "jquery": "^3.4.1",
+    "ngx-ckeditor": "^8.0.0",
     "popper.js": "^1.15.0",
     "rxjs": "~6.4.0",
     "tinymce": "^5.0.12",

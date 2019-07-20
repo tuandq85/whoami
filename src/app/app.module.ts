@@ -13,7 +13,6 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { GoleanComponent } from './shop/golean/golean.component';
 import { ProductDetailComponent } from './shop/product-detail/product-detail.component';
 import { IntroItemDetailComponent } from './shop/intro-item-detail/intro-item-detail.component';
-import { EditorComponent } from './editor/editor.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +24,6 @@ import { EditorComponent } from './editor/editor.component';
     GoleanComponent,
     ProductDetailComponent,
     IntroItemDetailComponent,
-    EditorComponent
   ],
   imports: [
     BrowserModule,
