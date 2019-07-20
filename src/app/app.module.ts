@@ -14,6 +14,9 @@ import { GoleanComponent } from './shop/golean/golean.component';
 import { ProductDetailComponent } from './shop/product-detail/product-detail.component';
 import { IntroItemDetailComponent } from './shop/intro-item-detail/intro-item-detail.component';
 
+import { GoleanEditorComponent } from './golean-editor/golean-editor.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,13 +26,15 @@ import { IntroItemDetailComponent } from './shop/intro-item-detail/intro-item-de
     AddEmployeeComponent,
     GoleanComponent,
     ProductDetailComponent,
-    IntroItemDetailComponent
+    IntroItemDetailComponent,
+    GoleanEditorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    CKEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
