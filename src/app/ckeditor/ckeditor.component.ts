@@ -6,7 +6,7 @@ import {Component} from '@angular/core';
     styleUrls:['./ckeditor.component.css']
 })
 
-export class CkeditorComponent{
+export class CkeditorComponent {
    
     public editorValue: string = '';
     constructor(){
