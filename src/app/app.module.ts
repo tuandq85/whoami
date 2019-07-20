@@ -23,7 +23,7 @@ import { IntroItemDetailComponent } from './shop/intro-item-detail/intro-item-de
     AddEmployeeComponent,
     GoleanComponent,
     ProductDetailComponent,
-    IntroItemDetailComponent,
+    IntroItemDetailComponent
   ],
   imports: [
     BrowserModule,

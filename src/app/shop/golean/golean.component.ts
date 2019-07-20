@@ -12,7 +12,4 @@ export class GoleanComponent implements OnInit {
   ngOnInit() {
   }
 
-  redirectDetailItem(): void {
-        alert("Redirect button has been clicked.");
-  };
 }
