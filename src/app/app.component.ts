@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+// OLD
+//import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+//declare var tinymce: any;
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'employee-management';
+  title = 'angulartinymc';
+  //tinymce.init({selector: "#mymce1"});
 }
