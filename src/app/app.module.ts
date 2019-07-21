@@ -6,13 +6,19 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GoleanEditorComponent } from './shop/golean-editor/golean-editor.component';
+import { GoleanComponent } from './shop/golean/golean.component';
+import { GoleanProductComponent } from './shop/golean-product/golean-product.component';
+import { IngredientsComponent } from './shop/ingredients/ingredients.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    GoleanEditorComponent
+    GoleanEditorComponent,
+    GoleanComponent,
+    GoleanProductComponent,
+    IngredientsComponent
   ],
   imports: [
     BrowserModule,
