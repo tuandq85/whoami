@@ -9,8 +9,20 @@ import { GoleanEditorComponent } from './shop/golean-editor/golean-editor.compon
 import { GoleanComponent } from './shop/golean/golean.component';
 import { GoleanProductComponent } from './shop/golean-product/golean-product.component';
 import { IngredientsComponent } from './shop/ingredients/ingredients.component';
+import { LoginComponent } from './login/login.component';
 
+// Importing social login module and facebook login provider.
+import { SocialLoginModule, AuthServiceConfig, FacebookLoginProvider } from 'angularx-social-login';
 
+// Client id for the facebook oauth. This is used for validation of our application to facebook.
+// https://developers.facebook.com/
+const facebook_oauth_client_id: string = 'Your-facebook-client-id.';
+let config = new AuthServiceConfig([
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider(facebook_oauth_client_id)
+  }
+]);
 
 @NgModule({
   declarations: [
@@ -18,15 +30,18 @@ import { IngredientsComponent } from './shop/ingredients/ingredients.component';
     GoleanEditorComponent,
     GoleanComponent,
     GoleanProductComponent,
-    IngredientsComponent
+    IngredientsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RichTextEditorAllModule,
-    FormsModule
+    FormsModule,
+    SocialLoginModule.initialize(config)
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

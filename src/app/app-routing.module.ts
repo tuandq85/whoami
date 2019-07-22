@@ -4,13 +4,15 @@ import { GoleanEditorComponent } from './shop/golean-editor/golean-editor.compon
 import { GoleanComponent } from './shop/golean/golean.component';
 import { GoleanProductComponent } from './shop/golean-product/golean-product.component';
 import { IngredientsComponent } from './shop/ingredients/ingredients.component';
+import { LoginComponent } from './login/login.component';
 
 
 const routes: Routes = [
-  { path:'editor', component: GoleanEditorComponent},
-  { path:'golean', component: GoleanComponent},
-  { path:'golean/product', component: GoleanProductComponent},
-  { path:'golean/ingredients', component: IngredientsComponent},
+  { path: 'editor', component: GoleanEditorComponent },
+  { path: 'golean', component: GoleanComponent },
+  { path: 'golean/product', component: GoleanProductComponent },
+  { path: 'golean/ingredients', component: IngredientsComponent },
+  { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({
