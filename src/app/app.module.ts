@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { RichTextEditorAllModule } from '@syncfusion/ej2-angular-richtexteditor';
 import { FormsModule } from '@angular/forms';
 
@@ -13,7 +13,12 @@ import { LoginComponent } from './login/login.component';
 
 // Importing social login module and facebook login provider.
 import { SocialLoginModule, AuthServiceConfig, FacebookLoginProvider } from 'angularx-social-login';
+import { RegisterComponent } from './register/register.component';
+import { SubscriptionComponent } from './subscription/subscription.component';
+import { ContactComponent } from './contact/contact.component';
 
+// MD Bootstrap.
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 // Client id for the facebook oauth. This is used for validation of our application to facebook.
 // https://developers.facebook.com/
 const facebook_oauth_client_id: string = 'Your-facebook-client-id.';
@@ -31,15 +36,20 @@ let config = new AuthServiceConfig([
     GoleanComponent,
     GoleanProductComponent,
     IngredientsComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    SubscriptionComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RichTextEditorAllModule,
     FormsModule,
-    SocialLoginModule.initialize(config)
+    SocialLoginModule.initialize(config),
+    MDBBootstrapModule.forRoot()
   ],
+  schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
   ],
   bootstrap: [AppComponent]
