@@ -1,85 +1,53 @@
-<!-- Material form login -->
-<mdb-card>
-
-    <mdb-card-header class="info-color white-text text-center py-4">
-      <h5>
-        <strong>Sign in</strong>
-      </h5>
-    </mdb-card-header>
-  
-  
-    <!--Card content-->
-    <mdb-card-body class="px-lg-5 pt-0">
-  
-      <!-- Form -->
-      <form class="text-center" style="color: #757575;">
-  
-        <!-- Email -->
-        <div class="md-form">
-          <input type="email" id="materialLoginFormEmail" class="form-control" mdbInput>
-          <label for="materialLoginFormEmail">E-mail</label>
+<div class="container h-100">
+  <div class="d-flex justify-content-center h-100 mg-top">
+    <div class="user_card">
+      <div class="d-flex justify-content-center">
+        <div class="brand_logo_container">
+          <img src="../../assets/csf.png" class="brand_logo" alt="Logo">
         </div>
-  
-        <!-- Password -->
-        <div class="md-form">
-          <input type="password" id="materialLoginFormPassword" class="form-control" mdbInput>
-          <label for="materialLoginFormPassword">Password</label>
-        </div>
-  
-        <div class="d-flex justify-content-around">
-          <div>
-            <!-- Remember me -->
-            <mdb-checkbox>Remember me</mdb-checkbox>
+      </div>
+      <div class="d-flex justify-content-end social_icon">
+        <span><i class="fab fa-facebook-square"></i></span>
+      </div>
+      <div class="d-flex justify-content-end social_icon">
+        <span><i class="fab fa-google-plus-square"></i></span>
+      </div>
+      <div class="d-flex justify-content-end social_icon">
+        <span><i class="fab fa-twitter-square"></i></span>
+      </div>
+      <div class="d-flex justify-content-center form_container">
+        <form>
+          <div class="input-group mb-3">
+            <div class="input-group-append">
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+            <input type="text" name="" class="form-control input_user" value="" placeholder="username">
           </div>
-          <div>
-            <!-- Forgot password -->
-            <a href="">Forgot password?</a>
+          <div class="input-group mb-2">
+            <div class="input-group-append">
+              <span class="input-group-text"><i class="fas fa-key"></i></span>
+            </div>
+            <input type="password" name="" class="form-control input_pass" value="" placeholder="password">
           </div>
+          <div class="form-group">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customControlInline">
+              <label class="custom-control-label" for="customControlInline">Remember me</label>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="d-flex justify-content-center mt-3 login_container">
+        <button type="button" name="button" class="btn login_btn">Login</button>
+      </div>
+      <div class="mt-4">
+        <div class="d-flex justify-content-center links">
+          Don't have an account? <a href="#" class="ml-2">Sign Up</a>
         </div>
-  
-        <!-- Sign in button -->
-        <button mdbBtn color="info" outline="true" rounded="true" block="true" class="my-4 waves-effect z-depth-0" mdbWavesEffect
-          type="submit">Sign in</button>
-  
-        <!-- Register -->
-        <p>Not a member?
-          <a href="">Register</a>
-        </p>
-  
-        <!-- Social login -->
-        <p>or sign in with:</p>
-        <a type="button" mdbBtn floating="true" color="fb" size="sm">
-          <mdb-icon fab icon="facebook"></mdb-icon>
-        </a>
-        <a type="button" mdbBtn floating="true" color="tw" size="sm">
-          <mdb-icon fab icon="twitter"></mdb-icon>
-        </a>
-        <a type="button" mdbBtn floating="true" color="li" size="sm">
-          <mdb-icon fab icon="linkedin"></mdb-icon>
-        </a>
-        <a type="button" mdbBtn floating="true" color="git" size="sm">
-          <mdb-icon fab icon="github"></mdb-icon>
-        </a>
-  
-      </form>
-      <!-- Form -->
-  
-    </mdb-card-body>
-  
-  </mdb-card>
-  <!-- Material form login -->
-
-
-<p>login works!</p>
-<p>
-    {{title}}
-</p>
-
-<button (click)="signIn('Facebook');">Sign in with Facebook</button><br /><br />
-<button (click)="signOut();">Sign out</button><br /><br />
-
-<div *ngIf="user">
-    <img src="{{ user.photoUrl }}">
-    <h4>{{ user.name }}</h4>
-    <p>{{ user.email }}</p>
+        <div class="d-flex justify-content-center links">
+          <a href="#">Forgot your password?</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

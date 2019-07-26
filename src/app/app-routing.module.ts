@@ -10,6 +10,9 @@ import { RegisterComponent } from './register/register.component';
 import { ContactComponent } from './contact/contact.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
 
+import { EditorComponent } from './quiz/editor/editor.component';
+import { ReviewComponent } from './quiz/review/review.component';
+import { TestComponent } from './quiz/test/test.component';
 
 const routes: Routes = [
   { path: 'editor', component: GoleanEditorComponent },
@@ -20,6 +23,10 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'subscription', component: SubscriptionComponent },
+
+  { path: 'quiz-create', component: EditorComponent },
+  { path: 'quiz-review', component: ReviewComponent },
+  { path: 'quiz-test', component: TestComponent },
 ];
 
 @NgModule({

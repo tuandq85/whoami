@@ -17,8 +17,13 @@ import { RegisterComponent } from './register/register.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
 import { ContactComponent } from './contact/contact.component';
 
-// MD Bootstrap.
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
+// [Ng-Bootstrap]
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
+import { EditorComponent } from './quiz/editor/editor.component';
+import { ReviewComponent } from './quiz/review/review.component';
+import { TestComponent } from './quiz/test/test.component';
+
 // Client id for the facebook oauth. This is used for validation of our application to facebook.
 // https://developers.facebook.com/
 const facebook_oauth_client_id: string = 'Your-facebook-client-id.';
@@ -39,7 +44,10 @@ let config = new AuthServiceConfig([
     LoginComponent,
     RegisterComponent,
     SubscriptionComponent,
-    ContactComponent
+    ContactComponent,
+    EditorComponent,
+    ReviewComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
@@ -47,9 +55,9 @@ let config = new AuthServiceConfig([
     RichTextEditorAllModule,
     FormsModule,
     SocialLoginModule.initialize(config),
-    MDBBootstrapModule.forRoot()
+    NgbModule,
+    NgbAlertModule
   ],
-  schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
   ],
   bootstrap: [AppComponent]
