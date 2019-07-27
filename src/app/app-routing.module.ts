@@ -17,6 +17,8 @@ import { TestComponent } from './quiz/test/test.component';
 import { HomeComponent } from './home/home.component';
 import { SearchGroupComponent } from './search-group/search-group.component';
 
+import { DemoComponent } from './demo/demo.component';
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'your-channel', component: SearchGroupComponent },
@@ -35,6 +37,8 @@ const routes: Routes = [
   { path: 'quiz-create', component: EditorComponent },
   { path: 'quiz-review', component: ReviewComponent },
   { path: 'quiz-test', component: TestComponent },
+
+  { path: 'demo', component: DemoComponent },
 ];
 
 @NgModule({
