@@ -23,6 +23,7 @@ import { NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 import { EditorComponent } from './quiz/editor/editor.component';
 import { ReviewComponent } from './quiz/review/review.component';
 import { TestComponent } from './quiz/test/test.component';
+import { HomeComponent } from './home/home.component';
 
 // Client id for the facebook oauth. This is used for validation of our application to facebook.
 // https://developers.facebook.com/
@@ -47,7 +48,8 @@ let config = new AuthServiceConfig([
     ContactComponent,
     EditorComponent,
     ReviewComponent,
-    TestComponent
+    TestComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

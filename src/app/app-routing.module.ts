@@ -14,7 +14,11 @@ import { EditorComponent } from './quiz/editor/editor.component';
 import { ReviewComponent } from './quiz/review/review.component';
 import { TestComponent } from './quiz/test/test.component';
 
+import { HomeComponent } from './home/home.component';
+
 const routes: Routes = [
+  { path: '', component: HomeComponent },
+
   { path: 'editor', component: GoleanEditorComponent },
   { path: 'golean', component: GoleanComponent },
   { path: 'golean/product', component: GoleanProductComponent },
