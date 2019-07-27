@@ -24,6 +24,7 @@ import { EditorComponent } from './quiz/editor/editor.component';
 import { ReviewComponent } from './quiz/review/review.component';
 import { TestComponent } from './quiz/test/test.component';
 import { HomeComponent } from './home/home.component';
+import { SearchGroupComponent } from './search-group/search-group.component';
 
 // Client id for the facebook oauth. This is used for validation of our application to facebook.
 // https://developers.facebook.com/
@@ -49,7 +50,8 @@ let config = new AuthServiceConfig([
     EditorComponent,
     ReviewComponent,
     TestComponent,
-    HomeComponent
+    HomeComponent,
+    SearchGroupComponent
   ],
   imports: [
     BrowserModule,

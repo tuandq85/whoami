@@ -15,9 +15,13 @@ import { ReviewComponent } from './quiz/review/review.component';
 import { TestComponent } from './quiz/test/test.component';
 
 import { HomeComponent } from './home/home.component';
+import { SearchGroupComponent } from './search-group/search-group.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'your-channel', component: SearchGroupComponent },
+  { path: 'contacts/:userId', component: TestComponent },
+  
 
   { path: 'editor', component: GoleanEditorComponent },
   { path: 'golean', component: GoleanComponent },
