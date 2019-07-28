@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { RichTextEditorAllModule } from '@syncfusion/ej2-angular-richtexteditor';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +26,8 @@ import { TestComponent } from './quiz/test/test.component';
 import { HomeComponent } from './home/home.component';
 import { SearchGroupComponent } from './search-group/search-group.component';
 import { DemoComponent } from './demo/demo.component';
+import { ViewComponent } from './group/view/view.component';
+import { ModifyComponent } from './group/modify/modify.component';
 
 // Client id for the facebook oauth. This is used for validation of our application to facebook.
 // https://developers.facebook.com/
@@ -53,13 +55,16 @@ let config = new AuthServiceConfig([
     TestComponent,
     HomeComponent,
     SearchGroupComponent,
-    DemoComponent
+    DemoComponent,
+    ViewComponent,
+    ModifyComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RichTextEditorAllModule,
     FormsModule,
+    ReactiveFormsModule,
     SocialLoginModule.initialize(config),
     NgbModule,
     NgbAlertModule,

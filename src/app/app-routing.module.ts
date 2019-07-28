@@ -19,11 +19,14 @@ import { SearchGroupComponent } from './search-group/search-group.component';
 
 import { DemoComponent } from './demo/demo.component';
 
+// Groups component
+import { ViewComponent } from './group/view/view.component';
+import { ModifyComponent } from './group/modify/modify.component';
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'your-channel', component: SearchGroupComponent },
   { path: 'contacts/:userId', component: TestComponent },
-  
 
   { path: 'editor', component: GoleanEditorComponent },
   { path: 'golean', component: GoleanComponent },
@@ -39,6 +42,9 @@ const routes: Routes = [
   { path: 'quiz-test', component: TestComponent },
 
   { path: 'demo', component: DemoComponent },
+  // Group path.
+  { path: 'group-view', component: ViewComponent },
+  { path: 'group-modify', component: ModifyComponent },
 ];
 
 @NgModule({
