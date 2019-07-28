@@ -19,7 +19,7 @@ import { ContactComponent } from './contact/contact.component';
 
 // [Ng-Bootstrap]
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 import { EditorComponent } from './quiz/editor/editor.component';
 import { ReviewComponent } from './quiz/review/review.component';
 import { TestComponent } from './quiz/test/test.component';
@@ -62,7 +62,8 @@ let config = new AuthServiceConfig([
     FormsModule,
     SocialLoginModule.initialize(config),
     NgbModule,
-    NgbAlertModule
+    NgbAlertModule,
+    NgbPaginationModule
   ],
   providers: [
   ],
