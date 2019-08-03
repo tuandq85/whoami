@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 
 // Import facebook login.
 import { AuthService, FacebookLoginProvider } from "angularx-social-login";
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   title = 'Angular Socio login via Facebook!';
   user: any;
  
-  constructor(private _socioAuthServ: AuthService) { }
+  constructor(private _socioAuthServ: AuthService, private router: Router) { }
  
   // Method to sign in with facebook.
   signIn(platform: string): void {
@@ -34,6 +35,10 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  gotoMainPage() {
+    this.router.navigate(['main']);
   }
 
 }

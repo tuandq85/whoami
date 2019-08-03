@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ContactComponent } from './contact/contact.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
+import { MainComponent } from './main/main.component';
 
 import { EditorComponent } from './quiz/editor/editor.component';
 import { ReviewComponent } from './quiz/review/review.component';
@@ -26,20 +27,27 @@ import { ModifyComponent } from './group/modify/modify.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'your-channel', component: SearchGroupComponent },
-  { path: 'contacts/:userId', component: TestComponent },
-
-  { path: 'editor', component: GoleanEditorComponent },
-  { path: 'golean', component: GoleanComponent },
-  { path: 'golean/product', component: GoleanProductComponent },
-  { path: 'golean/ingredients', component: IngredientsComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'subscription', component: SubscriptionComponent },
+  { path: 'main', component: MainComponent },
+  { path: 'quiz-test', component: TestComponent },
+
 
   { path: 'quiz-create', component: EditorComponent },
   { path: 'quiz-review', component: ReviewComponent },
-  { path: 'quiz-test', component: TestComponent },
+  
+
+  { path: 'golean', component: GoleanComponent },
+  { path: 'golean/product', component: GoleanProductComponent },
+  { path: 'golean/ingredients', component: IngredientsComponent },
+  
+  
+  { path: 'contacts/:userId', component: TestComponent },
+  { path: 'editor', component: GoleanEditorComponent },
+  
+
 
   { path: 'demo', component: DemoComponent },
   // Group path.
