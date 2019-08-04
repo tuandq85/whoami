@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class LoginService {
 
   // Declare URL redirect
-  API_URL: string = "/";
+  API_URL: string = "/api/csf";
 
   constructor(private http: HttpClient) { }
 
@@ -41,6 +42,15 @@ export class LoginService {
         error => {
           console.log('Error: ', error);
         });
+  }
+
+  // Register user
+  registerUser(user: Object): Observable<Object> {
+    return this.http.post(`${this.API_URL}`, user);
+  }
+
+  checkLogin(user: Object): Observable<Object> {
+    return this.http.post(`${this.API_URL}/oauth/token`, user);
   }
 
   // END declare.
