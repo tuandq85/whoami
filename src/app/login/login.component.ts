@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import { UserRequest } from "../entities/UserRequest";
-import { LoginService } from "../services/login.service";
 
 // Import facebook login.
 import { AuthService, FacebookLoginProvider } from "angularx-social-login";
@@ -15,10 +13,8 @@ export class LoginComponent implements OnInit {
 
   title = 'Angular Socio login via Facebook!';
   user: any;
-  loginAndRegist: UserRequest = new UserRequest();
-  submitted = false;
  
-  constructor(private _socioAuthServ: AuthService, private router: Router, private service: LoginService) { }
+  constructor(private _socioAuthServ: AuthService, private router: Router) { }
  
   // Method to sign in with facebook.
   signIn(platform: string): void {
@@ -45,20 +41,4 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['main']);
   }
 
-  // Register user
-  newUser(): void {
-    this.submitted = false;
-    this.loginAndRegist = new UserRequest();
-  }
-
-  save() {
-    this.service.registerUser(this.loginAndRegist)
-      .subscribe(data => console.log(data), error => console.log(error));
-    this.loginAndRegist = new UserRequest();
-  }
-
-  onSubmit() {
-    this.submitted = true;
-    this.save();
-  }
 }
