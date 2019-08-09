@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-
-// Import facebook login.
-import { AuthService, FacebookLoginProvider } from "angularx-social-login";
+import { NgForm, Validators, FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -11,34 +9,14 @@ import { AuthService, FacebookLoginProvider } from "angularx-social-login";
 })
 export class LoginComponent implements OnInit {
 
-  title = 'Angular Socio login via Facebook!';
-  user: any;
- 
-  constructor(private _socioAuthServ: AuthService, private router: Router) { }
- 
-  // Method to sign in with facebook.
-  signIn(platform: string): void {
-    platform = FacebookLoginProvider.PROVIDER_ID;
-    this._socioAuthServ.signIn(platform).then(
-      (response) => {
-        console.log(platform + " logged in user data is= ", response);
-        this.user = response;
-      }
-    );
-  }
- 
-  // Method to log out.
-  signOut(): void {
-    this._socioAuthServ.signOut();
-    this.user = null;
-    console.log('User signed out.');
+  formLogin: FormGroup;
+
+  constructor(
+    private router: Router,
+    private formBuider: FormBuilder
+  ) {
   }
 
   ngOnInit() {
-  }
-
-  gotoMainPage() {
-    this.router.navigate(['main']);
-  }
-
+  }  
 }
