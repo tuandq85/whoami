@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-// Import common libs.
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { GroupDomain } from '../domain/GroupDomain';
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -9,38 +10,26 @@ import { Observable } from 'rxjs';
 export class GroupService {
 
   // Declare URL mapping Back-End.
-  private baseUrl = '/api/groups';
+  private adminUrl = 'http://localhost:8080/groups';
 
-  // Change input params.
-  constructor(private http : HttpClient) { }
+  constructor(private http: HttpClient) { }
+  
+  findGroupByName(group: GroupDomain): Observable<GroupDomain> {
+    // Set JSON content type.
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-cache'
+    });
+    let options = {
+      headers: httpHeaders
+    };
 
-  // Declare method interact with Back-end.
-  // URL : GET '/api/groups/{groupId}'
-  getGroupById(groupId : string) : Observable<Object> {
-    return this.http.get(`${this.baseUrl}/${groupId}`);
+    // Convert object to JSON.
+    var json = JSON.stringify(group);
+    console.log("Json value: ", json);
+    return this.http.post<GroupDomain>(`${this.adminUrl}/find-group`, json, options);
   }
 
-  // URL : POST '/api/groups/'
-  // Parameter : groupDto
-  createGroup(groupDto : Object) : Observable<Object> {
-    return this.http.post(`${this.baseUrl}/`, groupDto);
-  }
-
-  // URL : PUT '/api/groups/{groupId}'
-  // Parameter : id & groupDto
-  updateGroup(groupId : string, groupDto : Object) : Observable<Object> {
-    return this.http.put(`${this.baseUrl}/${groupId}`, groupDto);
-  }
-
-  // URL : DELETE '/api/groups/{groupId}'
-  deleteGroup(groupId : string) : Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${groupId}`, {responseType : 'text'});
-  }
-
-  // URL : GET '/api/groups/'
-  getGroups() : Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
-  }
-
+  
   // END Declare.
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import { NgForm, Validators, FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -9,11 +8,8 @@ import { NgForm, Validators, FormGroup, FormBuilder } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  formLogin: FormGroup;
-
   constructor(
-    private router: Router,
-    private formBuider: FormBuilder
+    private router: Router
   ) {
   }
 

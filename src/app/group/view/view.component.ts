@@ -3,11 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Router } from "@angular/router";
 // Import relate libs.
-import { GroupDTO } from './../../dtos/group';
 import { GroupService } from './../../services/group.service';
-
-// Mocking data.
-import { GROUPS } from './../../dtos/mock-group';
 
 @Component({
   selector: 'app-view',
@@ -17,7 +13,7 @@ import { GROUPS } from './../../dtos/mock-group';
 export class ViewComponent implements OnInit {
 
   // Declare object list
-  groups: Observable<GroupDTO[]>;
+  // groups: Observable<GroupDTO[]>;
 
   // Change input params
   constructor(private service: GroupService, private router: Router) { }
