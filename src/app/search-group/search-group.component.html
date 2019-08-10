@@ -1,0 +1,23 @@
+<p>search-group works!</p>
+
+<div *ngIf="errorMessage" class="alert alert-warning">
+    <strong>Warning!</strong> {{errorMessage}}
+ </div>
+ 
+<section style="background: url('./statics/img/hero-bg.jpg') no-repeat;" class="hero d-flex align-items-center">
+    <div class="container">
+        <div class="search-bar">
+            <form (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" id="groupName" required
+                            [(ngModel)]="group.group_name" name="groupName">
+                    </div>
+                    <div class="col-lg">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
