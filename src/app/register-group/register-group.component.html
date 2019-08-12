@@ -9,8 +9,6 @@
     <form (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="name">Group Name: </label>
-            <!-- Variable : 
-                [(ngModel)]="employee.firstName" name="firstName"  -->
             <input type="text" class="form-control" id="groupName" required [(ngModel)]="group.group_name" name="groupName">
         </div>
 
