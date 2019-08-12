@@ -49,6 +49,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
+import { RegisterGroupComponent } from './register-group/register-group.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { FormsModule } from '@angular/forms';
     // TestComponent,
     HomeComponent,
     SearchGroupComponent,
+    RegisterGroupComponent,
     // DemoComponent,
     // ViewComponent,
     // ModifyComponent,

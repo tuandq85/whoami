@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { GroupDomain } from '../domain/GroupDomain';
+import { ResponseDataAPI } from '../domain/ResponseData';
 import { GroupService } from '../services/group.service';
 import { CommonService } from '../services/common.service';
 
 @Component({
-  selector: 'app-search-group',
-  templateUrl: './search-group.component.html',
-  styleUrls: ['./search-group.component.scss']
+  selector: 'app-register-group',
+  templateUrl: './register-group.component.html',
+  styleUrls: ['./register-group.component.scss']
 })
-export class SearchGroupComponent implements OnInit {
+export class RegisterGroupComponent implements OnInit {
 
   // Declare Variable.
   group: GroupDomain = new GroupDomain();
   errorMessage = '';
-  isRegister = false;
 
   constructor(private router: Router, private service: GroupService, private common: CommonService) { }
 
@@ -24,20 +24,18 @@ export class SearchGroupComponent implements OnInit {
   // Submit form.
   onSubmit() {
     // Call to save method.
-    this.service.findGroupByName(this.group).subscribe(
-      (data: GroupDomain) => {                 // Successful action
-        console.log(data.group_id);
-        this.router.navigate(['login', data.group_id]);
+    this.service.saveTempGroup(this.group).subscribe(
+      (data: ResponseDataAPI) => {                 // Successful action
+        console.log(data.data);
+        this.group = <GroupDomain> data.data;
+        this.router.navigate(['login', this.group.group_id]);
       },
       (error) => {
+        console.log('Error happen');
         this.errorMessage = error.message;
-        this.isRegister = true;
         console.log(this.common.getMessageContent("A"));
       }
     );
   }
 
-  gotoRegisterGroup() {
-    this.router.navigate(['your-group']);
-  }
 }
