@@ -27,7 +27,7 @@ export class RegisterGroupComponent implements OnInit {
     this.service.saveTempGroup(this.group).subscribe(
       (data: ResponseDataAPI) => {                 // Successful action
         console.log(data.data);
-        this.group = <GroupDomain> data.data;
+        this.group = data.data as GroupDomain;
         this.router.navigate(['login', this.group.group_id]);
       },
       (error) => {
