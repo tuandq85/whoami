@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpHeaders } from '@angular/common/http';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { LoginDomain } from '../domain/UserDomain';
+import { ResponseDataAPI } from '../domain/ResponseData';
 
 @Injectable({
   providedIn: 'root'
@@ -8,39 +10,25 @@ import { HttpClient } from '@angular/common/http';
 export class LoginService {
 
   // Declare URL redirect
-  API_URL: string = "/";
+  private adminUrl = 'http://localhost:8080/common';
 
   constructor(private http: HttpClient) { }
 
   // START declare Method to proccess.
-  gotoLogin() {
-    //return this.http.get(this.API_URL + 'editor')
-  }
-
-  gotoLoginWithParam(userid) {
-    //return this.http.get(`${this.API_URL + 'contacts'}/${userid}`)
-  }
-
-  // Add header basic login.
-  addHeader() {
-    
-    // Header basic authen.
-    const headerOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': 'Basic ' + btoa('username' + ':' + 'password')
-      })
+  loginSystem(user: LoginDomain): Observable<ResponseDataAPI> {
+    // Set JSON content type.
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-cache'
+    });
+    let options = {
+      headers: httpHeaders
     };
 
-    this.http
-      .get('{{url}}', headerOptions)
-      .subscribe(
-        data => { // json data
-          console.log('Success: ', data);
-        },
-        error => {
-          console.log('Error: ', error);
-        });
+    // Convert object to JSON.
+    var json = JSON.stringify(user);
+    console.log("Json value: ", json);
+    return this.http.post<ResponseDataAPI>(`${this.adminUrl}/login`, json, options);
   }
 
   // END declare.
