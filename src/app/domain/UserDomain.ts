@@ -6,3 +6,8 @@ export class LoginDomain {
     client_secret: string;
     scope: string;
 }
+
+export class UserInfoDomain {
+    user_id: string;
+    user_name: string;
+}

@@ -3,7 +3,7 @@ import { Router } from "@angular/router";
 import { GroupDomain } from '../domain/GroupDomain';
 import { ResponseDataAPI } from '../domain/ResponseData';
 import { CommonService } from '../services/common.service';
-import { LoginDomain } from '../domain/LoginDomain';
+import { LoginDomain, UserInfoDomain } from '../domain/UserDomain';
 import { LoginService } from '../services/login.service';
 
 @Component({
@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
 
   user: LoginDomain = new LoginDomain();
   errorMessage = '';
+  info: UserInfoDomain = new UserInfoDomain();
   constructor(private router: Router, private service: LoginService, private common: CommonService) { }
 
   ngOnInit() {
@@ -30,20 +31,16 @@ export class LoginComponent implements OnInit {
     console.log(this.user);
 
     // Call to save method.
-    console.log("Detail response : ", this.service.loginSystem(this.user));
-    // .subscribe(
-    //   (data) => {                 // Successful action
-    //     console.log(data);
-    //     // this.group = data.data as GroupDomain;
-    //     // this.router.navigate(['login', this.group.group_id]);
-    //   },
-    //   (error) => {
-    //     console.log('Error happen');
-    //     this.errorMessage = error.message;
-    //     console.log(this.common.getMessageContent("A"));
-    //   }
-    // );
-
-    alert('Login success');
+    this.service.loginSystem(this.user).subscribe(
+      (data: ResponseDataAPI) => {                 // Successful action
+        console.log(data);
+        this.info = data.data as UserInfoDomain;
+        console.log("User information :", this.info);
+      },
+      (error) => {
+        this.errorMessage = error.message;
+        console.log(this.common.getMessageContent("A"));
+      }
+    );
   }
 }
