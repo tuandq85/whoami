@@ -1,7 +1,10 @@
 <p>search-group works!</p>
 
 <div *ngIf="errorMessage" class="alert alert-warning">
-    <strong>Warning!</strong> {{errorMessage}}
+    {{errorMessage}}
+    <div>
+        <button type="button" name="submit" class="btn login_btn" (click)="gotoRegisterGroup()">Register new channel</button>
+    </div>
  </div>
  
 <section style="background: url('./statics/img/hero-bg.jpg') no-repeat;" class="hero d-flex align-items-center">

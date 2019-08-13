@@ -1,0 +1,21 @@
+<p>register-group works!</p>
+
+<div *ngIf="errorMessage" class="alert alert-warning">
+    {{errorMessage}}
+ </div>
+ 
+<div style="width: 400px;">
+    <!-- Take care about form method. -->
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="name">Group Name: </label>
+            <input type="text" class="form-control" id="groupName" required [(ngModel)]="group.group_name" name="groupName">
+        </div>
+
+        <div class="form-group">
+            <label for="name">Group Alias: </label>
+            <input type="text" class="form-control" id="groupUrl" required [(ngModel)]="group.group_url" name="groupUrl">
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
