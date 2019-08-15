@@ -28,7 +28,7 @@ import { SearchGroupComponent } from './search-group/search-group.component';
 // import { DemoComponent } from './demo/demo.component';
 // import { ViewComponent } from './group/view/view.component';
 // import { ModifyComponent } from './group/modify/modify.component';
-// import { MainComponent } from './main/main.component';
+import { MainComponent } from './main/main.component';
 
 // Client id for the facebook oauth. This is used for validation of our application to facebook.
 // https://developers.facebook.com/
@@ -71,7 +71,7 @@ import { RegisterGroupComponent } from './register-group/register-group.componen
     // DemoComponent,
     // ViewComponent,
     // ModifyComponent,
-    // MainComponent
+    MainComponent
   ],
   imports: [
     BrowserModule,

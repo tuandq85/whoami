@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { GroupDomain } from '../domain/GroupDomain';
 import { ResponseDataAPI } from '../domain/ResponseData';
 import { HttpHeaders } from '@angular/common/http';
+import { ChannelDomain } from '../domain/ChannelDomain';
 
 @Injectable({
   providedIn: 'root'
@@ -45,6 +46,13 @@ export class GroupService {
     var json = JSON.stringify(group);
     console.log("Json value: ", json);
     return this.http.post<ResponseDataAPI>(`${this.adminUrl}/temp-group`, json, options);
+  }
+
+  getChannelByGroup(groupId:string): Observable<ChannelDomain[]> {
+    this.http.get<ResponseDataAPI>(`${this.adminUrl}/${groupId}`).subscribe(
+
+    );
+    return null;
   }
   // END Declare.
 }

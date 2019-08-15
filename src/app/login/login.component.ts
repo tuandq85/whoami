@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { GroupDomain } from '../domain/GroupDomain';
 import { ResponseDataAPI } from '../domain/ResponseData';
 import { CommonService } from '../services/common.service';
@@ -15,27 +15,26 @@ export class LoginComponent implements OnInit {
 
   user: LoginDomain = new LoginDomain();
   errorMessage = '';
+  private groupId: string;
   info: UserInfoDomain = new UserInfoDomain();
-  constructor(private router: Router, private service: LoginService, private common: CommonService) { }
+  constructor(private router: Router, 
+              private service: LoginService,
+              private common: CommonService,
+              private activeRouter: ActivatedRoute) { }
 
   ngOnInit() {
   }
 
   // Submit form.
   onSubmit() {
-    this.user.client_id = "whoami-client";
-    this.user.client_secret = "whoami-secret";
-    this.user.grant_type = "password";
-    this.user.scope = "read";
-
-    console.log(this.user);
-
-    // Call to save method.
+    // Call to login method.
     this.service.loginSystem(this.user).subscribe(
       (data: ResponseDataAPI) => {                 // Successful action
         console.log(data);
         this.info = data.data as UserInfoDomain;
         console.log("User information :", this.info);
+        console.log("path value : ")
+        this.router.navigate(['/main', this.activeRouter.snapshot.params['group-id']]);
       },
       (error) => {
         this.errorMessage = error.message;
