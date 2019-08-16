@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { ChannelDomain } from '../domain/ChannelDomain';
 import { Observable } from 'rxjs';
 import { GroupService } from '../services/group.service';
+import { LoginResponInfoDomain } from '../domain/UserDomain';
 
 @Component({
   selector: 'app-main',
@@ -13,6 +14,7 @@ export class MainComponent implements OnInit {
 
   channels: Observable<ChannelDomain[]>;
   private groupActive: string;
+  info: LoginResponInfoDomain = new LoginResponInfoDomain();
 
   constructor(private router: Router, 
               private activeRouter: ActivatedRoute,
@@ -24,7 +26,8 @@ export class MainComponent implements OnInit {
   }
 
   loadGroupChannel() {
-    this.channels = this.service.getChannelByGroup(this.groupActive);
+    this.info = JSON.parse(localStorage.getItem('whoami')) as LoginResponInfoDomain;
+    this.channels = this.service.getChannelByGroup(this.groupActive, this.info);
   }
   gotoQuizTest() {
     // Get list quiz and start test.

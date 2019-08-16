@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { GroupDomain } from '../domain/GroupDomain';
 import { ResponseDataAPI } from '../domain/ResponseData';
 import { CommonService } from '../services/common.service';
-import { LoginDomain, UserInfoDomain } from '../domain/UserDomain';
+import { LoginDomain, LoginResponInfoDomain } from '../domain/UserDomain';
 import { LoginService } from '../services/login.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   user: LoginDomain = new LoginDomain();
   errorMessage = '';
   private groupId: string;
-  info: UserInfoDomain = new UserInfoDomain();
+  info: LoginResponInfoDomain = new LoginResponInfoDomain();
   constructor(private router: Router, 
               private service: LoginService,
               private common: CommonService,
@@ -31,9 +31,8 @@ export class LoginComponent implements OnInit {
     this.service.loginSystem(this.user).subscribe(
       (data: ResponseDataAPI) => {                 // Successful action
         console.log(data);
-        this.info = data.data as UserInfoDomain;
-        console.log("User information :", this.info);
-        console.log("path value : ")
+        this.info = data.data as LoginResponInfoDomain;
+        localStorage.setItem('whoami', JSON.stringify(this.info));
         this.router.navigate(['/main', this.activeRouter.snapshot.params['group-id']]);
       },
       (error) => {
