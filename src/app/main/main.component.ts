@@ -16,9 +16,9 @@ export class MainComponent implements OnInit {
   private groupActive: string;
   info: LoginResponInfoDomain = new LoginResponInfoDomain();
 
-  constructor(private router: Router, 
-              private activeRouter: ActivatedRoute,
-              private service: GroupService) { }
+  constructor(private router: Router,
+    private activeRouter: ActivatedRoute,
+    private service: GroupService) { }
 
   ngOnInit() {
     this.groupActive = this.activeRouter.snapshot.params['group-id'];
@@ -27,7 +27,25 @@ export class MainComponent implements OnInit {
 
   loadGroupChannel() {
     this.info = JSON.parse(localStorage.getItem('whoami')) as LoginResponInfoDomain;
-    this.channels = this.service.getChannelByGroup(this.groupActive, this.info);
+    console.log("User information:", this.info);
+
+    this.service.getChannelByGroup(this.groupActive, this.info).subscribe(
+      (res: any) => {
+        // const newData = this.form.value;
+        // newData.id = res.data.network_id;
+        // newData.userId = res.data.user_id;
+        if (res.success) {
+          console.log("Response successul.")
+          // this.topMessage = '';
+          // this.addToLocalList(newData);
+          // this.newState = false;
+          // this.listFormService.selectTab(0, true);
+          // this.notifi.successMessage(ActionType.Save);
+        }
+      }, (error) => {
+        // this.handleApiError(error, ActionType.Save);
+        console.log("Error happen.")
+      });
   }
   gotoQuizTest() {
     // Get list quiz and start test.
