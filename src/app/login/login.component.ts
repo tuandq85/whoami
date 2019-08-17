@@ -32,7 +32,9 @@ export class LoginComponent implements OnInit {
       (data: ResponseDataAPI) => {                 // Successful action
         console.log(data);
         this.info = data.data as LoginResponInfoDomain;
-        localStorage.setItem('whoami', JSON.stringify(this.info));
+        console.log('User info:', this.info);
+        // Storage access token.
+        localStorage.setItem('whoami', this.info.access_token);
         this.router.navigate(['/main', this.activeRouter.snapshot.params['group-id']]);
       },
       (error) => {

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from "@angular/router";
-import { ChannelDomain } from '../domain/ChannelDomain';
+import { ChannelDomain, GroupChannelDomain } from '../domain/ChannelDomain';
 import { Observable } from 'rxjs';
 import { GroupService } from '../services/group.service';
 import { LoginResponInfoDomain } from '../domain/UserDomain';
+import { ResponseDataAPI } from '../domain/ResponseData';
 
 @Component({
   selector: 'app-main',
@@ -14,38 +15,28 @@ export class MainComponent implements OnInit {
 
   channels: Observable<ChannelDomain[]>;
   private groupActive: string;
-  info: LoginResponInfoDomain = new LoginResponInfoDomain();
+  private groupInfo: GroupChannelDomain;
 
   constructor(private router: Router,
     private activeRouter: ActivatedRoute,
     private service: GroupService) { }
 
   ngOnInit() {
-    this.groupActive = this.activeRouter.snapshot.params['group-id'];
+    this.groupActive = this.activeRouter.snapshot.params['active-group'];
     this.loadGroupChannel();
   }
 
   loadGroupChannel() {
-    this.info = JSON.parse(localStorage.getItem('whoami')) as LoginResponInfoDomain;
-    console.log("User information:", this.info);
-
-    this.service.getChannelByGroup(this.groupActive, this.info).subscribe(
-      (res: any) => {
-        // const newData = this.form.value;
-        // newData.id = res.data.network_id;
-        // newData.userId = res.data.user_id;
-        if (res.success) {
-          console.log("Response successul.")
-          // this.topMessage = '';
-          // this.addToLocalList(newData);
-          // this.newState = false;
-          // this.listFormService.selectTab(0, true);
-          // this.notifi.successMessage(ActionType.Save);
-        }
-      }, (error) => {
-        // this.handleApiError(error, ActionType.Save);
-        console.log("Error happen.")
-      });
+    console.log('Token access :' + localStorage.getItem('whoami'));
+    console.log('Group ID :', this.groupActive);
+    this.service.getChannelByGroup(this.groupActive, localStorage.getItem('whoami')).subscribe(
+    (res: ResponseDataAPI) => {
+      this.groupInfo = res.data as GroupChannelDomain;
+      this.channels = this.groupInfo.channels;
+      console.log("Current chanel: ", this.channels);
+    }, (error) => {
+      console.log("Error happen.")
+    });
   }
   gotoQuizTest() {
     // Get list quiz and start test.

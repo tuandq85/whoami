@@ -15,7 +15,7 @@ export class GroupService {
   // Declare URL mapping Back-End.
   private adminUrl = 'http://localhost:8080/groups';
 
-  constructor(private http: HttpClient, private headers: HttpHeaders) { }
+  constructor(private http: HttpClient) { }
   
   findGroupByName(group: GroupDomain): Observable<GroupDomain> {
     // Set JSON content type.
@@ -29,7 +29,6 @@ export class GroupService {
 
     // Convert object to JSON.
     var json = JSON.stringify(group);
-    console.log("Json value: ", json);
     return this.http.post<GroupDomain>(`${this.adminUrl}/find-group`, json, options);
   }
 
@@ -45,17 +44,17 @@ export class GroupService {
 
     // Convert object to JSON.
     var json = JSON.stringify(group);
-    console.log("Json value: ", json);
     return this.http.post<ResponseDataAPI>(`${this.adminUrl}/temp-group`, json, options);
   }
 
-  getChannelByGroup(groupId:string, userInfo: LoginResponInfoDomain): Observable<ResponseDataAPI> {
+  getChannelByGroup(groupId:string, accessToken: string): Observable<ResponseDataAPI> {
 
+    console.log('Authorization Bearer: ', accessToken);
     // Set JSON content type.
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
       'Cache-Control': 'no-cache',
-      'Authorization': 'Bearer ' + userInfo.access_token
+      'Authorization': 'Bearer ' + accessToken
     });
     let options = {
       headers: httpHeaders
