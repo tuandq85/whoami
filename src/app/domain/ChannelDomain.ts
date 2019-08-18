@@ -1,15 +1,17 @@
 import { Observable } from 'rxjs';
 
 export class ChannelDomain {
-    title: string;
+    channel_id: string;
+    channel_name: string;
+    channel_description: string;
     create_date: string;
-    description: string;
+    lock_status: string;
 }
 
 export class GroupChannelDomain {
-    groupId: string;
-	groupName: string;
-	groupUrl: string;
-	groupImg: string;
-	channels: Observable<ChannelDomain[]>;
+    group_id: string;
+    group_name: string;
+    group_url: string;
+    group_img: string;
+    channels: Observable<ChannelDomain[]>;
 }

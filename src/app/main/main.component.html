@@ -3,7 +3,7 @@
        <div class="inbox_people">
           <div class="headind_srch">
              <div class="recent_heading">
-                <h4>Recent</h4>
+                <h4>{{groupInfo.group_name}}</h4>
              </div>
              <div class="srch_bar">
                 <div class="stylish-input-group">
@@ -18,16 +18,8 @@
              <div class="channel_list active_chat">
                 <div class="channel_around">
                    <div class="channel_descript">
-                      <h5>{{channel.title}} <span class="chat_date">{{channel.create_date}}</span></h5>
-                      <p>{{channel.description}}</p>
-                   </div>
-                </div>
-             </div>
-             <div class="channel_list">
-                <div class="channel_around">
-                   <div class="channel_descript">
-                      <h5>JAVA <span class="chat_date">Dec 25</span></h5>
-                      <p>Description about JAVA</p>
+                      <h5>{{channel.channel_name}} <span class="chat_date">{{channel.create_date}}</span></h5>
+                      <p>{{channel.channel_description}}</p>
                    </div>
                 </div>
              </div>
