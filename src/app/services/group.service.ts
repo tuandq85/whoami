@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { GroupDomain } from '../domain/GroupDomain';
 import { ResponseDataAPI } from '../domain/ResponseData';
 import { HttpHeaders } from '@angular/common/http';
+import { ChannelDomain } from '../domain/ChannelDomain';
+import { LoginResponInfoDomain } from '../domain/UserDomain';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +29,6 @@ export class GroupService {
 
     // Convert object to JSON.
     var json = JSON.stringify(group);
-    console.log("Json value: ", json);
     return this.http.post<GroupDomain>(`${this.adminUrl}/find-group`, json, options);
   }
 
@@ -43,8 +44,22 @@ export class GroupService {
 
     // Convert object to JSON.
     var json = JSON.stringify(group);
-    console.log("Json value: ", json);
     return this.http.post<ResponseDataAPI>(`${this.adminUrl}/temp-group`, json, options);
+  }
+
+  getChannelByGroup(groupId:string, accessToken: string): Observable<ResponseDataAPI> {
+
+    console.log('Authorization Bearer: ', accessToken);
+    // Set JSON content type.
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-cache',
+      'Authorization': 'Bearer ' + accessToken
+    });
+    let options = {
+      headers: httpHeaders
+    };
+    return this.http.get<ResponseDataAPI>(`${this.adminUrl}/${groupId}`, options);
   }
   // END Declare.
 }

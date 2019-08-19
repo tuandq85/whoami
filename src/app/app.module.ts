@@ -20,15 +20,15 @@ import { LoginComponent } from './login/login.component';
 // [Ng-Bootstrap]
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
-// import { EditorComponent } from './quiz/editor/editor.component';
-// import { ReviewComponent } from './quiz/review/review.component';
+import { EditorComponent } from './quiz/editor/editor.component';
+import { ReviewComponent } from './quiz/review/review.component';
 // import { TestComponent } from './quiz/test/test.component';
 import { HomeComponent } from './home/home.component';
 import { SearchGroupComponent } from './search-group/search-group.component';
 // import { DemoComponent } from './demo/demo.component';
 // import { ViewComponent } from './group/view/view.component';
 // import { ModifyComponent } from './group/modify/modify.component';
-// import { MainComponent } from './main/main.component';
+import { MainComponent } from './main/main.component';
 
 // Client id for the facebook oauth. This is used for validation of our application to facebook.
 // https://developers.facebook.com/
@@ -62,8 +62,8 @@ import { RegisterGroupComponent } from './register-group/register-group.componen
     // RegisterComponent,
     // SubscriptionComponent,
     // ContactComponent,
-    // EditorComponent,
-    // ReviewComponent,
+    EditorComponent,
+    ReviewComponent,
     // TestComponent,
     HomeComponent,
     SearchGroupComponent,
@@ -71,7 +71,7 @@ import { RegisterGroupComponent } from './register-group/register-group.componen
     // DemoComponent,
     // ViewComponent,
     // ModifyComponent,
-    // MainComponent
+    MainComponent
   ],
   imports: [
     BrowserModule,
