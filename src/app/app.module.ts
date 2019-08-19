@@ -20,8 +20,8 @@ import { LoginComponent } from './login/login.component';
 // [Ng-Bootstrap]
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
-// import { EditorComponent } from './quiz/editor/editor.component';
-// import { ReviewComponent } from './quiz/review/review.component';
+import { EditorComponent } from './quiz/editor/editor.component';
+import { ReviewComponent } from './quiz/review/review.component';
 // import { TestComponent } from './quiz/test/test.component';
 import { HomeComponent } from './home/home.component';
 import { SearchGroupComponent } from './search-group/search-group.component';
@@ -62,8 +62,8 @@ import { RegisterGroupComponent } from './register-group/register-group.componen
     // RegisterComponent,
     // SubscriptionComponent,
     // ContactComponent,
-    // EditorComponent,
-    // ReviewComponent,
+    EditorComponent,
+    ReviewComponent,
     // TestComponent,
     HomeComponent,
     SearchGroupComponent,
