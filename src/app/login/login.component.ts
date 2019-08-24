@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { GroupDomain } from '../domain/GroupDomain';
 import { ResponseDataAPI } from '../domain/ResponseData';
 import { CommonService } from '../services/common.service';
-import { LoginDomain, UserInfoDomain } from '../domain/UserDomain';
+import { LoginDomain, LoginResponInfoDomain } from '../domain/UserDomain';
 import { LoginService } from '../services/login.service';
 
 @Component({
@@ -15,27 +15,27 @@ export class LoginComponent implements OnInit {
 
   user: LoginDomain = new LoginDomain();
   errorMessage = '';
-  info: UserInfoDomain = new UserInfoDomain();
-  constructor(private router: Router, private service: LoginService, private common: CommonService) { }
+  private groupId: string;
+  info: LoginResponInfoDomain = new LoginResponInfoDomain();
+  constructor(private router: Router, 
+              private service: LoginService,
+              private common: CommonService,
+              private activeRouter: ActivatedRoute) { }
 
   ngOnInit() {
   }
 
   // Submit form.
   onSubmit() {
-    this.user.client_id = "whoami-client";
-    this.user.client_secret = "whoami-secret";
-    this.user.grant_type = "password";
-    this.user.scope = "read";
-
-    console.log(this.user);
-
-    // Call to save method.
+    // Call to login method.
     this.service.loginSystem(this.user).subscribe(
       (data: ResponseDataAPI) => {                 // Successful action
         console.log(data);
-        this.info = data.data as UserInfoDomain;
-        console.log("User information :", this.info);
+        this.info = data.data as LoginResponInfoDomain;
+        console.log('User info:', this.info);
+        // Storage access token.
+        localStorage.setItem('whoami', this.info.access_token);
+        this.router.navigate(['/main', this.activeRouter.snapshot.params['group-id']]);
       },
       (error) => {
         this.errorMessage = error.message;

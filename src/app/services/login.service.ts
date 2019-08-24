@@ -31,5 +31,9 @@ export class LoginService {
     return this.http.post<ResponseDataAPI>(`${this.adminUrl}/login`, json, options);
   }
 
+  logout() {
+    
+  }
+
   // END declare.
 }

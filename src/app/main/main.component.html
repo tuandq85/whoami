@@ -1,78 +1,66 @@
 <div class="container">
     <div class="inbox_msg">
-        <div class="inbox_people">
-            <div class="headind_srch">
-            <div class="recent_heading">
-                <h4>Recent</h4>
-            </div>
-            <div class="srch_bar">
+       <div class="inbox_people">
+          <div class="headind_srch">
+             <div class="recent_heading">
+                <h4>{{groupInfo.group_name}}</h4>
+             </div>
+             <div class="srch_bar">
                 <div class="stylish-input-group">
-                    <input type="text" class="search-bar"  placeholder="Search" >
-                    <span class="input-group-addon">
-                    <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
-                    </span> 
+                   <input type="text" class="search-bar"  placeholder="Search" >
+                   <span class="input-group-addon">
+                   <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
+                   </span> 
                 </div>
-            </div>
-            </div>
-            <div class="inbox_chat">
-            <div class="chat_list active_chat">
-                <div class="chat_people">
-                    <div class="chat_img"> <img src="../../assets/csf.png" alt="sunil"> </div>
-                    <div class="chat_ib">
-                        <h5>English TOEIC <span class="chat_date">Dec 25</span></h5>
-                        <p>Description about TOEIC</p>
-                    </div>
+             </div>
+          </div>
+          <div class="inbox_chat" *ngFor="let channel of channels">
+             <div class="channel_list active_chat">
+                <div class="channel_around">
+                   <div class="channel_descript">
+                      <h5>{{channel.channel_name}} <span class="chat_date">{{channel.create_date}}</span></h5>
+                      <p>{{channel.channel_description}}</p>
+                   </div>
                 </div>
-            </div>
-            <div class="chat_list">
-                <div class="chat_people">
-                    <div class="chat_img"> <img src="../../assets/csf.png" alt="sunil"> </div>
-                    <div class="chat_ib">
-                        <h5>JAVA <span class="chat_date">Dec 25</span></h5>
-                        <p>Description about JAVA</p>
-                    </div>
-                </div>
-            </div>
-            
-            </div>
-        </div>
-        <div class="mesgs">
-            <div class="msg_history">
-            <div class="incoming_msg">
+             </div>
+          </div>
+       </div>
+       <div class="mesgs">
+          <div class="msg_history">
+             <div class="incoming_msg">
                 <div class="incoming_msg_img"> <img src="../../assets/csf.png" alt="sunil"> </div>
                 <div class="received_msg">
-                    <a routerLink="/quiz-review">
-                        <div class="received_withd_msg">
-                            <p>The first test</p>
-                            <span class="time_date"> 11:01 AM    |    June 9</span>
-                        </div>
-                    </a>
+                   <a routerLink="/quiz-review">
+                      <div class="received_withd_msg">
+                         <p>The first test</p>
+                         <span class="time_date"> 11:01 AM    |    June 9</span>
+                      </div>
+                   </a>
                 </div>
-            </div>
-            <div class="incoming_msg">
+             </div>
+             <div class="incoming_msg">
                 <div class="incoming_msg_img"> <img src="../../assets/csf.png" alt="sunil"> </div>
                 <div class="received_msg">
-                    <a routerLink="/quiz-review">
-                        <div class="received_withd_msg">
-                                <p>The second test</p>
-                            <span class="time_date"> 11:01 AM    |    Yesterday</span>
-                        </div>
-                    </a>
+                   <a routerLink="/quiz-review">
+                      <div class="received_withd_msg">
+                         <p>The second test</p>
+                         <span class="time_date"> 11:01 AM    |    Yesterday</span>
+                      </div>
+                   </a>
                 </div>
-            </div>
-            
-            <div class="incoming_msg">
+             </div>
+             <div class="incoming_msg">
                 <div class="incoming_msg_img"> <img src="../../assets/csf.png" alt="sunil"> </div>
                 <div class="received_msg">
-                    <a routerLink="/quiz-review">
-                        <div class="received_withd_msg">
-                                <p>The thirth test</p>
-                            <span class="time_date"> 11:01 AM    |    Today</span>
-                        </div>
-                    </a>
+                   <a routerLink="/quiz-review">
+                      <div class="received_withd_msg">
+                         <p>The thirth test</p>
+                         <span class="time_date"> 11:01 AM    |    Today</span>
+                      </div>
+                   </a>
                 </div>
-            </div>
-            </div>
-        </div>
+             </div>
+          </div>
+       </div>
     </div>
-</div>
+ </div>
