@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from "@angular/router";
-import { GroupDomain } from '../domain/GroupDomain';
 import { ResponseDataAPI } from '../domain/ResponseData';
 import { CommonService } from '../services/common.service';
 import { LoginDomain, LoginResponInfoDomain } from '../domain/UserDomain';
