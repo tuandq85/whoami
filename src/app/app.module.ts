@@ -1,6 +1,6 @@
 // import { BrowserModule } from '@angular/platform-browser';
 // import { NgModule } from '@angular/core';
-// import { RichTextEditorAllModule } from '@syncfusion/ej2-angular-richtexteditor';
+import { RichTextEditorAllModule } from '@syncfusion/ej2-angular-richtexteditor';
 // import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 // import { FormsModule } from '@angular/forms';
 // import { AppRoutingModule } from './app-routing.module';
@@ -29,19 +29,6 @@ import { SearchGroupComponent } from './search-group/search-group.component';
 // import { ViewComponent } from './group/view/view.component';
 // import { ModifyComponent } from './group/modify/modify.component';
 import { MainComponent } from './main/main.component';
-
-// Client id for the facebook oauth. This is used for validation of our application to facebook.
-// https://developers.facebook.com/
-// const facebook_oauth_client_id: string = 'Your-facebook-client-id.';
-// let config = new AuthServiceConfig([
-//   {
-//     id: FacebookLoginProvider.PROVIDER_ID,
-//     provider: new FacebookLoginProvider(facebook_oauth_client_id)
-//   }
-// ]);
-
-
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -50,6 +37,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { RegisterGroupComponent } from './register-group/register-group.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -76,14 +65,16 @@ import { RegisterGroupComponent } from './register-group/register-group.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // RichTextEditorAllModule,
+    RichTextEditorAllModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
     // ReactiveFormsModule,
     // SocialLoginModule.initialize(config),
     // NgbModule,
     // NgbAlertModule,
     // NgbPaginationModule
+    , MatSelectModule
   ],
   providers: [
   ],

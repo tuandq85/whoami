@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditorComponent implements OnInit {
 
+  questionType = null;
+
   constructor() { }
 
   ngOnInit() {

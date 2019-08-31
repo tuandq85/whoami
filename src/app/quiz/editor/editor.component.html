@@ -1,91 +1,22 @@
-<div id="mySidenav" class="sidenav">
-    <div class="toogleChoose">
-        <span class="alLeft">Yes or no.</span>
-        <label class="switch">
-            <input type="checkbox" checked>
-            <span class="slider round"></span>
-            <span class="absolute-no">NO</span>
-        </label>
-    </div>
-    <div class="toogleChoose">
-        <span class="alLeft">Yes or no.</span>
-        <label class="switch">
-            <input type="checkbox" checked>
-            <span class="slider round"></span>
-            <span class="absolute-no">NO</span>
-        </label>
-    </div>
-    <div class="toogleChoose">
-        <span class="alLeft">Yes or no.</span>
-        <label class="switch">
-            <input type="checkbox" checked>
-            <span class="slider round"></span>
-            <span class="absolute-no">NO</span>
-        </label>
-    </div>
-    <div class="toogleChoose">
-        <span class="alLeft">Yes or no.</span>
-        <label class="switch">
-            <input type="checkbox" checked>
-            <span class="slider round"></span>
-            <span class="absolute-no">NO</span>
-        </label>
-    </div>
-    <div class="toogleChoose">
-        <span class="alLeft">Yes or no.</span>
-        <label class="switch">
-            <input type="checkbox" checked>
-            <span class="slider round"></span>
-            <span class="absolute-no">NO</span>
-        </label>
-    </div>
+<mat-form-field>
+    <mat-label>Select question type</mat-label>
+    <mat-select [(value)]="questionType">
+      <mat-option>None</mat-option>
+      <mat-option value="option1">Option 1</mat-option>
+      <mat-option value="option2">Option 2</mat-option>
+      <mat-option value="option3">Option 3</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div *ngIf="questionType">
+    <ejs-richtexteditor></ejs-richtexteditor>
+  </div>
+  <div *ngIf="questionType === 'option1'">
+      Div content 1
+  </div>
+  <div *ngIf="questionType === 'option2'">
+    Div content 2
 </div>
-
-<div id="main">
-        <div class="btn-group" mdbDropdown>
-            <button mdbDropdownToggle type="button" mdbBtn color="primary" class="dropdown-toggle waves-light"
-                mdbWavesEffect>
-                Basic dropdown
-            </button>
-            
-            <div class="dropdown-menu dropdown-primary">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-                <div class="divider dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Separated link</a>
-            </div>
-        </div>
-
-    
-    <span style="font-size:30px;cursor:pointer" onclick="checkNav">&#9776; Left menu</span>
-    <div class="container">
-        <div class="row">
-
-            <div class="combobox">
-                <header>
-                    <input type="text" placeholder="Select One" />
-                    <button><i class="fa fa-navicon"></i></button>
-                </header>
-                <ul>
-                    <li data-value="Likes"><i class="fa fa-thumbs-up"></i>Likes</li>
-                    <li data-value="Preferences"><i class="fa fa-gear"></i>Preferences</li>
-                    <li data-value="Messages"><i class="fa fa-comment"></i>Messages</li>
-                </ul>
-            </div>
-        </div> <!-- End Row -->
-    </div>
+<div *ngIf="questionType === 'option3'">
+    Div content 3
 </div>
-
-<script>
-    function checkNav() {
-        var widthMenu = document.getElementById("mySidenav").style.width;
-        if (!widthMenu || widthMenu === "0px") {
-            document.getElementById("mySidenav").style.width = "250px";
-            document.getElementById("main").style.marginLeft = "250px";
-        } else {
-            document.getElementById("mySidenav").style.width = "0";
-            document.getElementById("main").style.marginLeft = "0";
-        }
-    }
-</script>
