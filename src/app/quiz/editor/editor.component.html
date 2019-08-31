@@ -1,22 +1,38 @@
-<mat-form-field>
-    <mat-label>Select question type</mat-label>
-    <mat-select [(value)]="questionType">
-      <mat-option>None</mat-option>
-      <mat-option value="option1">Option 1</mat-option>
-      <mat-option value="option2">Option 2</mat-option>
-      <mat-option value="option3">Option 3</mat-option>
-    </mat-select>
-  </mat-form-field>
+<!-- Question toogle. 
+    https://stackblitz.com/edit/rte-sample-2b3vw3 -->
+<form (ngSubmit)="onSubmit()" class="form-signin">
+    <mat-form-field>
+        <mat-label>Select question type</mat-label>
+        <mat-select [(value)]="questionType">
+            <mat-option>None</mat-option>
+            <mat-option value="option1">Option 1</mat-option>
+            <mat-option value="option2">Option 2</mat-option>
+            <mat-option value="option3">Option 3</mat-option>
+        </mat-select>
+    </mat-form-field>
 
-  <div *ngIf="questionType">
-    <ejs-richtexteditor></ejs-richtexteditor>
-  </div>
-  <div *ngIf="questionType === 'option1'">
-      Div content 1
-  </div>
-  <div *ngIf="questionType === 'option2'">
-    Div content 2
-</div>
-<div *ngIf="questionType === 'option3'">
-    Div content 3
-</div>
+    <div *ngIf="questionType">
+        <ejs-richtexteditor id='defaultRTE' [(value)]='editorValue'></ejs-richtexteditor>
+    </div>
+    <div *ngIf="questionType === 'option1'">
+        Option 1
+    </div>
+    <div *ngIf="questionType === 'option2'">
+        Div content 2
+    </div>
+    <div *ngIf="questionType === 'option3'">
+        Div content 3
+    </div>
+
+    <div *ngIf="questionType">
+        <div class="row">
+            <button type="submit" name="submit" mat-button>Click me!</button>
+        </div>
+    </div>
+    <!-- Save Image.
+        https://ej2.syncfusion.com/documentation/rich-text-editor/image/
+        https://www.syncfusion.com/forums/140339/saving-an-inserted-image-in-the-rich-text-editor-control-server-side-so-it-can-be-persisted
+        https://stackoverflow.com/questions/56405325/angular-text-editor-upload-images-request-is-not-sending-the-authorization-heade
+        
+    -->
+</form>

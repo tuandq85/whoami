@@ -8,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class EditorComponent implements OnInit {
 
   questionType = null;
+  editorValue = null;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  onSubmit() {
+    console.log('Question type: ', this.questionType);
+    console.log('Editor value:', this.editorValue);
+  }
 }

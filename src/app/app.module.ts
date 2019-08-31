@@ -39,6 +39,8 @@ import { FormsModule } from '@angular/forms';
 import { RegisterGroupComponent } from './register-group/register-group.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSelectModule} from '@angular/material/select';
+import {MatButtonModule} from '@angular/material/button';
+
 
 @NgModule({
   declarations: [
@@ -75,6 +77,7 @@ import {MatSelectModule} from '@angular/material/select';
     // NgbAlertModule,
     // NgbPaginationModule
     , MatSelectModule
+    , MatButtonModule
   ],
   providers: [
   ],
