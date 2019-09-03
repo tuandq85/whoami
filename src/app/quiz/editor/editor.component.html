@@ -2,31 +2,55 @@
     https://stackblitz.com/edit/rte-sample-2b3vw3 -->
 <form (ngSubmit)="onSubmit()" class="form-signin">
     <mat-form-field>
-        <mat-label>Select question type</mat-label>
+        <mat-label>Chọn loại câu hỏi</mat-label>
         <mat-select [(value)]="questionType">
             <mat-option>None</mat-option>
-            <mat-option value="option1">Option 1</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option3">Option 3</mat-option>
+            <mat-option value="select-option">Câu hỏi có phương án trả lời</mat-option>
+            <mat-option value="image-choice">Câu hỏi lựa chọn bằng hình ảnh</mat-option>
+            <mat-option value="yes-no">Câu hỏi dạng Đúng/Sai</mat-option>
+            <mat-option value="drag-drop">Câu hỏi dạng kéo thả</mat-option>
+            <mat-option value="short-text">Câu hỏi hoàn thành câu</mat-option>
+            <mat-option value="paragraph">Câu hỏi tự luận</mat-option>
+            <mat-option value="upload-ans">Câu hỏi upload tài liệu</mat-option>
         </mat-select>
     </mat-form-field>
 
     <div *ngIf="questionType">
-        <ejs-richtexteditor id='defaultRTE' [(value)]='editorValue'></ejs-richtexteditor>
+        <!-- <ejs-richtexteditor id='imageRTE'
+            [(quickToolbarSettings)]='toolbarSettings'  
+            [insertImageSettings]='imageSettings' [(value)]='editorValue'
+            (toolbarClick)='onToolbarClick($event)'>
+        </ejs-richtexteditor> -->
+        <ejs-richtexteditor id='imageRTE'
+            [insertImageSettings]='imageSettings' [(value)]='editorValue'
+            (imageUploadSuccess)='onImageUploadSuccess'>
+        </ejs-richtexteditor>
     </div>
-    <div *ngIf="questionType === 'option1'">
-        Option 1
+    <div *ngIf="questionType === 'select-option'">
+        Dạng chọn phương án trả lời.
     </div>
-    <div *ngIf="questionType === 'option2'">
-        Div content 2
+    <div *ngIf="questionType === 'image-choice'">
+        Dạng chọn ảnh.
     </div>
-    <div *ngIf="questionType === 'option3'">
-        Div content 3
+    <div *ngIf="questionType === 'yes-no'">
+        Dạng câu hỏi Đúng/Sai
+    </div>
+    <div *ngIf="questionType === 'drag-drop'">
+        Dạng câu hỏi kéo thả.
+    </div>
+    <div *ngIf="questionType === 'short-text'">
+        Dạng câu hỏi hoàn thành câu.
+    </div>
+    <div *ngIf="questionType === 'paragraph'">
+        Dạng câu hỏi tự luận.
+    </div>
+    <div *ngIf="questionType === 'upload-ans'">
+        Dạng câu hỏi thực hành.
     </div>
 
     <div *ngIf="questionType">
         <div class="row">
-            <button type="submit" name="submit" mat-button>Click me!</button>
+            <button type="submit" name="submit" mat-button>Hoàn thành</button>
         </div>
     </div>
     <!-- Save Image.
