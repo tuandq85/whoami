@@ -16,14 +16,8 @@
     </mat-form-field>
 
     <div *ngIf="questionType">
-        <!-- <ejs-richtexteditor id='imageRTE'
-            [(quickToolbarSettings)]='toolbarSettings'  
-            [insertImageSettings]='imageSettings' [(value)]='editorValue'
-            (toolbarClick)='onToolbarClick($event)'>
-        </ejs-richtexteditor> -->
         <ejs-richtexteditor id='imageRTE'
-            [insertImageSettings]='imageSettings' [(value)]='editorValue'
-            (imageUploadSuccess)='onImageUploadSuccess'>
+            [insertImageSettings]='imageSettings' [(value)]='editorValue'>
         </ejs-richtexteditor>
     </div>
     <div *ngIf="questionType === 'select-option'">
