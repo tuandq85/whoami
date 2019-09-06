@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { RichTextEditor } from '@syncfusion/ej2-richtexteditor';
 
 @Component({
   selector: 'app-editor',
@@ -14,13 +13,12 @@ export class EditorComponent implements OnInit {
   imageSettings: Object = null;
 
   constructor(private http: HttpClient) {
-    let imgPath = "/demoURL/folder";
 
     this.imageSettings = {
       // saveUrl: this.uploadSettings,
       saveUrl: 'http://localhost:8080/upload/saveFile',
       // removeUrl: this.removeSettings,
-      path: imgPath,
+      path: "../assets/tmp/imgs/",
       display: 'inline'
     };
   }
