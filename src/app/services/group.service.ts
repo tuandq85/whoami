@@ -13,7 +13,7 @@ import { LoginResponInfoDomain } from '../domain/UserDomain';
 export class GroupService {
 
   // Declare URL mapping Back-End.
-  private adminUrl = 'http://localhost:8080/groups';
+  private adminUrl = 'http://192.168.99.100:8866/groups';
 
   constructor(private http: HttpClient) { }
   

@@ -18,7 +18,7 @@ export class EditorComponent implements OnInit {
       // saveUrl: this.uploadSettings,
       saveUrl: 'http://localhost:8080/upload/saveFile',
       // removeUrl: this.removeSettings,
-      path: "../assets/tmp/imgs/",
+      path: "http://localhost:8080/tmp/",
       display: 'inline'
     };
   }

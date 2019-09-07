@@ -7,3 +7,7 @@ ADD ./dist/whoami/. /usr/share/nginx/html/
 # COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
 # RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 ADD ./docker/nginx/default.conf /etc/nginx/conf.d/default.conf
+
+USER root
+RUN mkdir -p /var/app/imgs
+RUN chown -R nginx:nginx /var/app/imgs

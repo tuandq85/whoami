@@ -1,6 +1,6 @@
 version: '3'
 services:
-  luna-cms-app:
+  whoami-app:
     image: 'angular-image'
     container_name: angular-docker
     build:
@@ -8,3 +8,11 @@ services:
       dockerfile: Dockerfile
     ports:
       - 4200:80
+    external_links:
+      - api-docker:api-docker
+    networks: 
+      - csfwhoami_ext
+
+networks:
+  csfwhoami_ext:
+    external: true
